@@ -1,5 +1,3 @@
-import React from 'react'
-
 // state = [
 //     {id: 1, title: 'タイトル1', body: '本文1'},
 //     {id: 2, title: 'タイトル2', body: '本文2'},
@@ -23,7 +21,7 @@ const Events = (state = [], action) => {
             return [...state, { id: id, ...event }];
 
         case 'DELETE_EVENT':
-            return;
+            return state.filter(event => event.id !== action.id);
 
         case 'DELETE_ALL_EVENT':
             return;

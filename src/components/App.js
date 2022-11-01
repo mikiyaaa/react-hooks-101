@@ -1,5 +1,6 @@
 import { useState, useReducer } from 'react';
 import Events from '../reducers/Events'
+import Event from './Event';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // state = [
@@ -30,7 +31,6 @@ const App = () => {
     setBody('');
   }
 
-
   return (
     <div className="container-fluid">
       <h4>イベント作成フォーム</h4>
@@ -60,6 +60,15 @@ const App = () => {
             <th scope="col">本文</th>
           </tr>
         </thead>
+        {/* イベント一覧表示 */}
+        <tbody>
+          { 
+            state.map((event, index) => (
+              <Event key={index.toString()} event={event} dispatch={dispatch} />
+            ))
+          }
+
+        </tbody>
       </table>
     </div>
   );
