@@ -10,7 +10,7 @@
 //     body: '本文です。'
 // }
 
-const Events = (state = [], action) => {
+const reducer = (state = [], action) => {
 
     switch(action.type) {
         case 'CREATE_EVENT':
@@ -32,4 +32,4 @@ const Events = (state = [], action) => {
 
 }
 
-export default Events
+export default reducer;
