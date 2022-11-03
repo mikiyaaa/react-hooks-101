@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CREATE_EVENT } from '../actions';
 
 const EventForm = ({state, dispatch}) => {
     const [title, setTitle] = useState('');
@@ -6,8 +7,10 @@ const EventForm = ({state, dispatch}) => {
 
     const addEvent = (e) => {
       e.preventDefault();
+
+
       dispatch({
-        type: 'CREATE_EVENT',
+        type: CREATE_EVENT,
         title: title,
         body: body,
       });
