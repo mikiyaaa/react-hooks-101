@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import Event from './Event';
 import AppContext from '../contexts/AppContext';
 
-const Events = ({ state, dispatch }) => {
+const Events = () => {
 
-    const value = useContext(AppContext);
+    const { state } = useContext(AppContext);
 
     return (
         <>
@@ -21,7 +21,7 @@ const Events = ({ state, dispatch }) => {
                 <tbody>
                 { 
                     state.map((event, index) => (
-                    <Event key={index.toString()} event={event} dispatch={dispatch} />
+                    <Event key={index.toString()} event={event} />
                     ))
                 }
                 </tbody>

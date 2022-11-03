@@ -17,18 +17,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //     body: '本文です。'
 // }
 
-
-console.log({ AppContext });
-
 const App = () => {
     const [state, dispatch] = useReducer(reducer, []);
 
     return (
-      <AppContext.Provider value={'Hello React Context!!'}>
+      <AppContext.Provider value={{ state, dispatch }}>
         <div className="container-fluid">
-            <EventForm state={state} dispatch={dispatch} />
+            <EventForm />
             <br />
-            <Events state={state} dispatch={dispatch} />
+            <Events />
         </div>
       </AppContext.Provider>
     );
