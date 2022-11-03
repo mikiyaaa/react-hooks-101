@@ -1,9 +1,9 @@
 import { useReducer } from 'react';
-import Event from './Event';
 import EventForm from './EventForm';
-import reducer from '../reducers/reducer';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Events from './Events';
+import reducer from '../reducers/reducer';
+import AppContext from '../contexts/AppContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // state = [
 //     {id: 1, title: 'タイトル1', body: '本文1'},
@@ -17,17 +17,21 @@ import Events from './Events';
 //     body: '本文です。'
 // }
 
+
+console.log({ AppContext });
+
 const App = () => {
     const [state, dispatch] = useReducer(reducer, []);
-    console.log(state, 'in App.js');
 
-  return (
-    <div className="container-fluid">
-      <EventForm state={state} dispatch={dispatch} />
-      <br />
-      <Events state={state} dispatch={dispatch} />
-    </div>
-  );
+    return (
+      <AppContext.Provider value={'Hello React Context!!'}>
+        <div className="container-fluid">
+            <EventForm state={state} dispatch={dispatch} />
+            <br />
+            <Events state={state} dispatch={dispatch} />
+        </div>
+      </AppContext.Provider>
+    );
 }
 
 export default App;
